@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-float	disorder(t_list **list) // marche pas, doit faire fonctionner
+float	disorder(t_list **list) // doit marcher normalement maintenant
 {
 	int mistakes;
 	int total_args;
@@ -8,6 +8,7 @@ float	disorder(t_list **list) // marche pas, doit faire fonctionner
 	t_list *tmp;
 
 	tmp = (*list);
+	mistakes = 0;
 	total_args = ft_lstsize(tmp);
 	if (sorted(tmp) == 0)
 		mistakes = 0;
@@ -19,6 +20,6 @@ float	disorder(t_list **list) // marche pas, doit faire fonctionner
 		}
 		tmp = tmp->next;
 	}
-	dis = mistakes / total_args;
+	dis = (float)mistakes / (float)total_args;
 	return (dis);
 }
