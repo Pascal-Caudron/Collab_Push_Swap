@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/22 09:03:01 by brouzaud          #+#    #+#             */
+/*   Updated: 2025/12/22 09:07:38 by brouzaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_list	*ft_lstnew(int content)
@@ -62,8 +74,8 @@ int	ft_atoi(const char *nptr)
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	const unsigned char *t1;
-	const unsigned char *t2;
+	const unsigned char	*t1;
+	const unsigned char	*t2;
 
 	t1 = (const unsigned char *)s1;
 	t2 = (const unsigned char *)s2;

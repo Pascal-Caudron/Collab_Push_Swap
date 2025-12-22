@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/22 09:02:37 by brouzaud          #+#    #+#             */
+/*   Updated: 2025/12/22 09:07:59 by brouzaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
@@ -82,8 +94,8 @@ char	**delim_split(char const *s, char **split_s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char **split_s;
-	size_t s_index;
+	char	**split_s;
+	size_t	s_index;
 
 	if (!s)
 		return (NULL);

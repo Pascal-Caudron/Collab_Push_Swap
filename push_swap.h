@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/22 09:02:56 by brouzaud          #+#    #+#             */
+/*   Updated: 2025/12/22 09:32:31 by brouzaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -12,15 +24,16 @@ typedef struct s_list
 	struct s_list	*prev;
 	int				data;
 	int				index;
+	int				index2;
 }					t_list;
 
-typedef struct s_stack // peut etre tout mettre dans la une meme struct
-{
-	struct s_list *a;
-	struct s_list *b;
-	int a_len;
-	int b_len;
-}					t_stack;
+// typedef struct s_stack // peut etre tout mettre dans la une meme struct
+// {
+// 	struct s_list *a;
+// 	struct s_list *b;
+// 	int a_len;
+// 	int b_len;
+// }					t_stack;
 
 typedef enum e_flag
 {
@@ -44,7 +57,7 @@ void				parsing(int argc, char *argv[], t_list **a);
 void				parsing_str(int argc, char *argv[], t_list **a, int num);
 void				*ft_calloc(size_t nmemb, size_t size);
 void				error_arg(void);
-void				bubble_sort(t_list **a_list);
+void				bubble_sort(t_list **a_list, int argc, char *argv[]);
 
 int					duplicate_parsing(t_list **list);
 int					ft_atoi(const char *nptr);
@@ -52,6 +65,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					sorted(t_list *list);
 int					ft_isdigit(char *c);
 int					ft_lstsize(t_list *lst);
+int					check_bubble_sort(t_list **a_list, int argc, char *argv[]);
 
 char				**ft_split(char const *s, char c);
 char				**delim_split(char const *s, char **split_s, char c);

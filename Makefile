@@ -1,5 +1,17 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/12/22 09:03:04 by brouzaud          #+#    #+#              #
+#    Updated: 2025/12/22 09:03:04 by brouzaud         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc 
-CFLAGS = -Wall -Wextra -Werror -ggdb
+CFLAGS = -Wall -Wextra -Werror -ggdb 
 INC = -I./include 
 
 SRCS = parsing_utils.c parsing.c reverse_rotate.c rotate.c simple_algo.c split.c swap.c utils.c main.c
@@ -20,11 +32,11 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -f $(OBJS)
-	@echo --All -o are clean--
+	@echo -- $(NAME) is clean --
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo --Everything is clean--
+	@echo -- Everything is clean --
 
 re: fclean all
 
@@ -35,4 +47,10 @@ test: $(NAME)
 	@rm -f $(NAME)
 gdb: $(NAME)
 	gdb ./$(NAME)
+val:
+	@valgrind ./$(NAME)
+	@rm -f $(OBJS)
+	@rm -f $(NAME)
+
+
 .PHONY: all clean fclean re
