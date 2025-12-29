@@ -6,7 +6,7 @@
 /*   By: bjmrzd <bjmrzd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:32 by brouzaud          #+#    #+#             */
-/*   Updated: 2025/12/29 21:16:49 by bjmrzd           ###   ########.fr       */
+/*   Updated: 2025/12/29 23:22:36 by bjmrzd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	simple_sort(int argc, char *argv[], t_list **list, t_count *count)
 	isbench = arg_error(argc, argv);
 	if (isbench == BENCH)
 		flag = second_flag(argc, argv);
+	else
+		flag = arg_error(argc, argv);
 	if (flag == SIMPLE)
 	{
 		size = ft_lstsize((*list));
