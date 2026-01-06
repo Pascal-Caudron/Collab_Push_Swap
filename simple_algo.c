@@ -6,24 +6,11 @@
 /*   By: bjmrzd <bjmrzd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:32 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/06 03:58:59 by bjmrzd           ###   ########.fr       */
+/*   Updated: 2026/01/06 04:02:51 by bjmrzd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	sorted(t_list *list)
-{
-	while (list && list->next)
-	{
-		if (list->data > list->next->data)
-		{
-			return (1);
-		}
-		list = list->next;
-	}
-	return (0);
-}
 
 void	simple_sort(int argc, char *argv[], t_list **list, t_count *count)
 {
@@ -38,6 +25,8 @@ void	simple_sort(int argc, char *argv[], t_list **list, t_count *count)
 		flag = arg_error(argc, argv);
 	if (flag == SIMPLE)
 	{
+		if (sorted(*list) == 0)
+			exit(2);
 		size = ft_lstsize((*list));
 		if (size == 3)
 			sort3(list, count);

@@ -56,7 +56,7 @@ void	init_count(t_count *count)
 
 int	ft_lstsize(t_list *lst)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (lst != NULL)
@@ -65,4 +65,17 @@ int	ft_lstsize(t_list *lst)
 		index++;
 	}
 	return (index);
+}
+
+int	sorted(t_list *list)
+{
+	while (list && list->next)
+	{
+		if (list->data > list->next->data)
+		{
+			return (1);
+		}
+		list = list->next;
+	}
+	return (0);
 }
