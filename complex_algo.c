@@ -2,28 +2,28 @@
 
 int	getMax(t_list **list)
 {
-	int		max_index;
+	// int		max_index;
 	int		max;
 	t_list	*tmp;
 
 	tmp = (*list);
 	max = tmp->data;
-	max_index = 0;
+	// max_index = 0;
 	while (tmp)
 	{
 		if (tmp->data > max)
 			max = tmp->data;
 		tmp = tmp->next;
 	}
-	tmp = (*list);
-	while (tmp)
-	{
-		if (tmp->data == max)
-			return (++max_index);
-		max_index++;
-		tmp = tmp->next;
-	}
-	return (max_index);
+	// tmp = (*list);
+	// while (tmp)
+	// {
+	// 	if (tmp->data == max)
+	// 		return (++max_index);
+	// 	max_index++;
+	// 	tmp = tmp->next;
+	// }
+	return (max);
 }
 
 int	max_bits(t_list **list)
@@ -64,7 +64,7 @@ void	radix_sort(t_list **b_list, t_list **a_list, t_count *count)
 	int	index;
 	int	bits;
 
-	b_list = malloc(sizeof(t_list *));
+	
 	size = ft_lstsize((*a_list));
 	m_bits = max_bits(a_list);
 	count_bits = 0;
@@ -73,13 +73,13 @@ void	radix_sort(t_list **b_list, t_list **a_list, t_count *count)
 		index = 0;
 		while (index++ < size)
 		{
-			bits = getBits(index, count_bits);
+			bits = getBits((*a_list)->data, count_bits);
 			if (bits == 0)
 				ra(a_list, count);
 			else
 				pb(a_list, b_list, count);
 		}
 	}
-	while (b_list)
+	while (*b_list)
 		pa(a_list, b_list, count);
 }
