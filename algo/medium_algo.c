@@ -7,6 +7,7 @@ void	chunk_sort(t_list **a_list) // marche pas doit faire fonctionner
 	int index;
 	int index2;
 	t_list *tmp;
+	int val;
 
 	tmp = (*a_list);
 	size = ft_lstsize((*a_list));
@@ -17,7 +18,7 @@ void	chunk_sort(t_list **a_list) // marche pas doit faire fonctionner
 	index2 = 0;
 	while (index < 5)
 		tab[index++] = malloc(5 * sizeof(int));
-	index = 0;
+	index = 1;
 	while (tmp)
 	{
 		if (index2 == 5)
@@ -25,7 +26,11 @@ void	chunk_sort(t_list **a_list) // marche pas doit faire fonctionner
 			index++;
 			index2 = 0;
 		}
-		tab[index][index2++] = tmp->data;
+
+		val = tmp->data;
+		tab[index][index2] = val;
+		index2++;
 		tmp = tmp->next;
 	}
+	printf(" tab = %d\n ", tab[2][2]);
 }
