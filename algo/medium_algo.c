@@ -20,29 +20,31 @@ void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 	int		bucket_limit;
 
 	b_list = malloc(sizeof(t_list *));
+	*b_list = NULL;
 	size = ft_lstsize((*a_list));
 	presort_index(a_list);
 	nb_values = 0;
 	bucket_size = square_root(size);
-	bucket_limit = bucket_size; // doit coder square root
+	bucket_limit = bucket_size;
 	while (nb_values < size)
 	{
-		if ((*a_list)->data < bucket_size)
+		if ((*a_list)->index < bucket_size)
 		{
 			pb(argv, a_list, b_list, count);
 			nb_values++;
 		}
 		else
 			ra(argv, a_list, count);
+		if (bucket_size <= nb_values && nb_values < size)
+			bucket_size += bucket_limit;
 	}
-	if (bucket_size == nb_values && nb_values < size)
-		bucket_size += bucket_limit;
 	while (*b_list)
 	{
-		if (sorted(a_list) == 0)
-			pa(argv, a_list, b_list, count);
-		else
-			rb(argv, a_list, count);
+		// if (sorted(b_list) == 0)
+		// 	pa(argv, a_list, b_list, count);
+		// else
+		// 	rb(argv, b_list, count);
+		pa(argv, a_list, b_list, count);
 	}
 	free(b_list);
 }

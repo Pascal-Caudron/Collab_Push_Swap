@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:43 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/13 15:12:15 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/15 19:44:18 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_isdigit(char *c)
 
 void	error_arg(void)
 {
-	write(2, "Error\n", 6);
+	write(2, "Error\n", 7);
 	exit(2);
 }
 

@@ -71,7 +71,7 @@ static int	typecheck(const char *str, va_list arguments)
 	else if (*str == 'X')
 		return (count += print_hexa(va_arg(arguments, unsigned int), 'X'));
 	else if (*str == 'f')
-		return (count += print_float(va_arg(arguments, double), 1));
+		return (count += print_float(va_arg(arguments, double), 2));
 	return (count);
 }
 
@@ -94,7 +94,7 @@ int	ft_printf(const char *str, ...)
 				index += typecheck(str, args);
 			}
 			else if (*str == '%')
-				index += ft_putchar_fd('%', 1);
+				index += ft_putchar_fd('%', 2);
 		}
 		else
 			index += write(2, str, 1);

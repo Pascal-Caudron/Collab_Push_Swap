@@ -58,7 +58,7 @@ int	print_float(float number, int fd)
 
 	count += ft_putnbr_fd(number, fd);
 	number = number - (int)number;
-	count += write(1, ".", 1);
+	count += write(2, ".", 1);
 	number = number * 100;
 	count += ft_putnbr_fd(number, fd);
 	return (count);
