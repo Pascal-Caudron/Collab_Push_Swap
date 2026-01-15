@@ -29,8 +29,8 @@ void	adaptive(char *argv[], t_list **list, t_count *count)
 	dis = disorder(list);
 	if (dis < 0.2)
 		simple_sort(argv, list, count);
-	// else if (dis >= 0.2 && dis < 0.5)
-	// 	chunk_sort();
+	else if (dis >= 0.2 && dis < 0.5)
+		bucket_sort(argv, list, count);
 	else if (dis >= 0.5)
 		complex_sort(argv, list, count);
 }
@@ -49,8 +49,8 @@ void	strat_select(char *argv[], t_list **list, t_count *count)
 		adaptive(argv, list, count);
 	else if (flag == SIMPLE)
 		simple_sort(argv, list, count);
-	// else if (flag == MEDIUM)
-	// 	chunk_sort();
+	else if (flag == MEDIUM)
+		bucket_sort(argv, list, count);
 	else if (flag == COMPLEX)
 		init_radix(argv, list, count);
 }

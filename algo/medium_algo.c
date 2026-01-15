@@ -1,43 +1,48 @@
 #include "../push_swap.h"
 
-// void	chunk_sort(t_list **a_list) // marche pas doit faire fonctionner
-// {
-// 	int **tab;
-// 	int size;
-// 	int index;
-// 	int index2;
-// 	t_list *tmp;
-// 	int val;
+int	square_root(int size)
+{
+	int	val;
 
-// 	tmp = (*a_list);
-// 	size = ft_lstsize((*a_list));
-// 	tab = malloc((size / 5) * sizeof(int *));
-// 	if (!tab)
-// 		return ;
-// 	index = 0;
-// 	index2 = 0;
-// 	while (index < 5)
-// 		tab[index++] = malloc(5 * sizeof(int));
-// 	index = 1;
-// 	while (tmp)
-// 	{
-// 		if (index2 == 5)
-// 		{
-// 			index++;
-// 			index2 = 0;
-// 		}
+	val = 0;
+	while (val * val < size)
+		val++;
+	printf("val = %d\n", val);
+	return (val);
+}
 
-// 		val = tmp->data;
-// 		tab[index][index2] = val;
-// 		index2++;
-// 		tmp = tmp->next;
-// 	}
-// 	printf(" tab = %d\n ", tab[2][2]);
-// }
-
-void	bucket_sort(t_list **a_list)
+void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 {
 	t_list	**b_list;
+	int		bucket_size;
+	int		size;
+	int		nb_values;
+	int		bucket_limit;
 
 	b_list = malloc(sizeof(t_list *));
+	size = ft_lstsize((*a_list));
+	presort_index(a_list);
+	nb_values = 0;
+	bucket_size = square_root(size);
+	bucket_limit = bucket_size; // doit coder square root
+	while (nb_values < size)
+	{
+		if ((*a_list)->data < bucket_size)
+		{
+			pb(argv, a_list, b_list, count);
+			nb_values++;
+		}
+		else
+			ra(argv, a_list, count);
+	}
+	if (bucket_size == nb_values && nb_values < size)
+		bucket_size += bucket_limit;
+	while (*b_list)
+	{
+		if (sorted(a_list) == 0)
+			pa(argv, a_list, b_list, count);
+		else
+			rb(argv, a_list, count);
+	}
+	free(b_list);
 }

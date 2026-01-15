@@ -55,13 +55,14 @@ void	push_back(char *argv[], t_list **b_list, t_list **a_list,
 		pa(argv, a_list, b_list, count);
 }
 
-void	radix_sort(char *argv[], t_list **a_list, t_count *count) // doit factoriser 2 lignes
+void	radix_sort(char *argv[], t_list **a_list, t_count *count)
+// doit factoriser 2 lignes
 {
-	int		m_bits;
-	int		size;
-	int		count_bits;
-	int		index;
-	t_list	**b_list;
+	int m_bits;
+	int size;
+	int count_bits;
+	int index;
+	t_list **b_list;
 
 	b_list = malloc(sizeof(t_list *));
 	*b_list = NULL;
