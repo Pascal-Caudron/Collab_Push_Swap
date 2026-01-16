@@ -11,6 +11,26 @@ int	square_root(int size)
 	return (val);
 }
 
+
+
+int	max_index(t_list **list) // need to find index and not the index of the max data
+{
+	int		max_index;
+	t_list	*tmp;
+	int		index;
+
+	index = 0;
+	tmp = (*list);
+	while (tmp)
+	{
+		if (tmp->index == max_index)
+			return (index);
+		index++;
+		tmp = tmp->next;
+	}
+	return (index);
+}
+
 void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 {
 	t_list	**b_list;
@@ -23,6 +43,7 @@ void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 	*b_list = NULL;
 	size = ft_lstsize((*a_list));
 	presort_index(a_list);
+	presort_index(b_list);
 	nb_values = 0;
 	bucket_size = square_root(size);
 	bucket_limit = bucket_size;
@@ -40,11 +61,11 @@ void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 	}
 	while (*b_list)
 	{
-		// if (sorted(b_list) == 0)
-		// 	pa(argv, a_list, b_list, count);
-		// else
-		// 	rb(argv, b_list, count);
-		pa(argv, a_list, b_list, count);
+		
+		if ((*b_list)->index == max_index(b_list))
+			pa(argv, a_list, b_list, count);
+		else
+			rb(argv, b_list, count);
 	}
 	free(b_list);
 }
