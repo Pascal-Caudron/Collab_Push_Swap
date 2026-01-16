@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:53 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/12 13:19:30 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/16 18:32:05 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	rra(char *argv[], t_list **list, t_count *count)
 	else
 		write(1, "rra\n", 4);
 }
+
 void	rrb(char *argv[], t_list **list, t_count *count)
 {
 	t_list	*end;
@@ -62,7 +63,7 @@ void	rrb(char *argv[], t_list **list, t_count *count)
 	node->next = NULL;
 	(*list) = end;
 	end->next = head;
-	count->rra_count++;
+	count->rrb_count++;
 	if (arg_error(argv) == BENCH)
 		return ;
 	else

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex_algo.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/16 14:44:00 by brouzaud          #+#    #+#             */
+/*   Updated: 2026/01/16 19:22:28 by brouzaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	max_bits(t_list **list)
@@ -56,33 +68,30 @@ void	push_back(char *argv[], t_list **b_list, t_list **a_list,
 }
 
 void	radix_sort(char *argv[], t_list **a_list, t_count *count)
-// doit factoriser 2 lignes
 {
-	int m_bits;
-	int size;
-	int count_bits;
-	int index;
-	t_list **b_list;
+	int		m_bits;
+	int		size;
+	int		count_bits;
+	int		index;
+	t_list	**b_list;
 
 	b_list = malloc(sizeof(t_list *));
 	*b_list = NULL;
 	m_bits = max_bits(a_list);
 	count_bits = 0;
 	presort_index(a_list);
-	while (count_bits < m_bits)
+	while (count_bits++ < m_bits)
 	{
 		index = 0;
 		size = ft_lstsize((*a_list));
-		while (index < size)
+		while (index++ < size)
 		{
 			if (((*a_list)->index >> count_bits & 1) == 0)
 				pb(argv, a_list, b_list, count);
 			else
 				ra(argv, a_list, count);
-			index++;
 		}
 		push_back(argv, b_list, a_list, count);
-		count_bits++;
 	}
 	free(b_list);
 }

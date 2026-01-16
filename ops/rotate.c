@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:49 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/12 13:19:44 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/16 17:27:44 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	rb(char *argv[], t_list **list, t_count *count)
 	end->next = head;
 	(*list) = tmp;
 	head->next = NULL;
-	count->ra_count++;
+	count->rb_count++;
 	if (arg_error(argv) == BENCH)
 		return ;
 	else

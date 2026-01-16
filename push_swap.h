@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:56 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/15 15:17:30 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:42:36 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,10 @@ t_list				*ft_lstnew(int content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				**sort_logic(char *argv[], t_list **a_list, t_count *count);
 t_flag				arg_error(char *argv[]);
-t_flag				second_flag(char *argv[]);
+t_flag				second_flag(char *argv[], t_list **a_list);
 
 float				disorder(t_list **list);
 
-void				chunk_sort(t_list **a_list);
 void				ra(char *argv[], t_list **list, t_count *count);
 void				rb(char *argv[], t_list **list, t_count *count);
 void				sa(char *argv[], t_list **list, t_count *count);
@@ -76,12 +75,13 @@ void				ft_lstadd_back(t_list **lst, t_list *node);
 void				parsing(int argc, char *argv[], t_list **a);
 void				parsing_str(int argc, char *argv[], t_list **a, int num);
 void				*ft_calloc(size_t nmemb, size_t size);
-void				error_arg(void);
+void				error_arg(t_list **a_list);
 void				simple_sort(char *argv[], t_list **list, t_count *count);
 void				pb(char *argv[], t_list **a, t_list **b, t_count *count);
 void				pa(char *argv[], t_list **a, t_list **b, t_count *count);
-void				bench(char *argv[], t_count *count, t_dis *init_dis);
-void				strategy(char *argv[]);
+void				bench(char *argv[], t_count *count, t_dis *init_dis,
+						t_list **a_list);
+void				strategy(char *argv[], t_list **a_list);
 void				init_count(t_count *count);
 void				sort3(char *argv[], t_list **a_list, t_count *count);
 void				selection_sort(char *argv[], t_list **a_list,
@@ -95,15 +95,17 @@ void				complex_sort(char *argv[], t_list **a_list, t_count *count);
 void				free_list(t_list **list);
 void				presort_index(t_list **a_list);
 void				bucket_sort(char *argv[], t_list **a_list, t_count *count);
+void				medium_push_back(char *argv[], t_list **a_list,
+						t_list **b_list, t_count *count);
 
 int					count_ops(t_count *count);
 int					duplicate_parsing(t_list **list);
-int					ft_atoi(const char *nptr);
+int					ft_atoi(const char *nptr, t_list **a_list);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					sorted(t_list **list);
 int					ft_isdigit(char *c);
 int					ft_lstsize(t_list *lst);
-int					flag_count(char *argv[], int arg_index);
+int					flag_count(char *argv[], int arg_index, t_list **a_list);
 int					ft_printf(const char *str, ...);
 int					print_ptr(void *ptr);
 int					print_unsigned(unsigned int n);
@@ -116,6 +118,7 @@ int					min_index(t_list **list);
 int					max_bits(t_list **list);
 int					print_float(float number, int fd);
 int					square_root(int size);
+int					max_index(t_list **list);
 
 char				**ft_split(char const *s, char c);
 char				*ft_strchr(const char *s, int c);

@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:32 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/13 14:33:38 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:27:41 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	sort3(char *argv[], t_list **a_list, t_count *count)
 		rra(argv, a_list, count);
 }
 
-t_list	**sort_logic(char *argv[], t_list **a_list, t_count *count) // doit factoriser 1 ligne
+t_list	**sort_logic(char *argv[], t_list **a_list, t_count *count)
 {
 	int		index;
 	int		len;
@@ -62,7 +62,7 @@ t_list	**sort_logic(char *argv[], t_list **a_list, t_count *count) // doit facto
 	b_list = malloc(sizeof(t_list *));
 	*b_list = NULL;
 	len = ft_lstsize((*a_list));
-	while (ft_lstsize((*a_list)) > 0)
+	while (len > 0)
 	{
 		index = min_index(a_list);
 		if (index <= len / 2)

@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:03:01 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/13 18:55:43 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:24:41 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_lstadd_back(t_list **lst, t_list *node)
 	}
 }
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, t_list **a_list)
 {
 	size_t	index;
 	int		sign;
@@ -67,7 +67,7 @@ int	ft_atoi(const char *nptr)
 		power = (power * 10) + (nptr[index++] - '0');
 	}
 	if (power * sign > INT_MAX || power * sign < INT_MIN)
-		error_arg();
+		error_arg(a_list);
 	return (power * sign);
 }
 

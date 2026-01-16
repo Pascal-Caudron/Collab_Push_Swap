@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:37 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/12 20:18:15 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:50:42 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ char	**delim_split(char const *s, char **split_s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char **split_s;
-	size_t s_index;
+	char	**split_s;
+	size_t	s_index;
 
 	if (!s || !*s)
 		return (NULL);

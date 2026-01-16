@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/16 14:45:27 by brouzaud          #+#    #+#             */
+/*   Updated: 2026/01/16 15:27:20 by brouzaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-t_flag	second_flag(char *argv[])
+t_flag	second_flag(char *argv[], t_list **a_list)
 {
 	t_flag	flag;
 	t_flag	bench_flag;
@@ -18,7 +30,7 @@ t_flag	second_flag(char *argv[])
 		if (ft_strncmp(argv[2], "--complex", 9) == 0)
 			flag = COMPLEX;
 		if (ft_strncmp(argv[2], "--bench", 7) == 0)
-			error_arg();
+			error_arg(a_list);
 	}
 	return (flag);
 }
@@ -69,7 +81,8 @@ int	ft_lstsize(t_list *lst)
 
 int	sorted(t_list **list)
 {
-	t_list *tmp;
+	t_list	*tmp;
+
 	tmp = (*list);
 	while (tmp && tmp->next)
 	{

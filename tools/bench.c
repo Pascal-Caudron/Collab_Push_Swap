@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/16 14:44:52 by brouzaud          #+#    #+#             */
+/*   Updated: 2026/01/16 18:24:35 by brouzaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void	strategy(char *argv[])
+void	strategy(char *argv[], t_list **a_list)
 {
 	t_flag	flag;
 	t_flag	isbench;
 
 	isbench = arg_error(argv);
 	if (isbench == BENCH)
-		flag = second_flag(argv);
+		flag = second_flag(argv, a_list);
 	else
 		flag = arg_error(argv);
 	if (flag == ADAPTIVE)
@@ -30,17 +42,15 @@ int	count_ops(t_count *count)
 	return (count->total_count);
 }
 
-void	bench(char *argv[], t_count *count, t_dis *init_dis)
+void	bench(char *argv[], t_count *count, t_dis *init_dis, t_list **a_list)
 {
-	t_flag flag;
+	t_flag	flag;
 
 	flag = arg_error(argv);
-
 	if (flag == BENCH)
 	{
 		ft_printf("[bench] disorder: %f%%\n", init_dis->dis * 100);
-		// marche avec printf mais doit modifier ft_printf pour faire float
-		strategy(argv);
+		strategy(argv, a_list);
 		ft_printf("[bench] total_ops: %d\n", count_ops(count));
 		ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 			count->sa_count, count->sb_count, count->ss_count, count->pa_count,

@@ -6,13 +6,13 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:58 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/12 21:37:11 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/16 16:31:31 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	flag_count(char *argv[], int arg_index)
+int	flag_count(char *argv[], int arg_index, t_list **a_list)
 {
 	t_flag	flag;
 
@@ -33,7 +33,7 @@ int	flag_count(char *argv[], int arg_index)
 		if (ft_strncmp(argv[arg_index], "--complex", 9) == 0)
 			arg_index++;
 		if (ft_strncmp(argv[arg_index], "--bench", 7) == 0)
-			error_arg();
+			error_arg(a_list);
 	}
 	else
 		arg_index++;
@@ -67,7 +67,7 @@ void	parsing_str(int argc, char *argv[], t_list **a, int num)
 
 	arg_index = 1;
 	if (arg_error(argv))
-		arg_index = flag_count(argv, arg_index);
+		arg_index = flag_count(argv, arg_index, a);
 	while (arg_index < argc)
 	{
 		index = 0;
@@ -75,8 +75,8 @@ void	parsing_str(int argc, char *argv[], t_list **a, int num)
 		while (str && str[index])
 		{
 			if (!ft_isdigit(str[index]))
-				error_arg();
-			num = ft_atoi(str[index]);
+				error_arg(a);
+			num = ft_atoi(str[index], a);
 			new = ft_lstnew(num);
 			ft_lstadd_back(a, new);
 			index++;
@@ -110,12 +110,17 @@ int	duplicate_parsing(t_list **list)
 
 void	parsing(int argc, char *argv[], t_list **a)
 {
-	int num;
+	int	num;
 
 	num = 0;
 	if (argc <= 2)
-		error_arg();
+		error_arg(a);
 	parsing_str(argc, argv, a, num);
 	if (duplicate_parsing(a) == 0)
-		error_arg();
+		error_arg(a);
+	if (sorted(a) == 0)
+	{
+		free_list(a);
+		exit(2);
+	}
 }
