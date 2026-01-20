@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bjmrzd <bjmrzd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:44:52 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/16 18:24:35 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/18 08:20:03 by bjmrzd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	bench(char *argv[], t_count *count, t_dis *init_dis, t_list **a_list)
 	flag = arg_error(argv);
 	if (flag == BENCH)
 	{
-		ft_printf("[bench] disorder: %f%%\n", init_dis->dis * 100);
+		printf("[bench] disorder: %f%%\n", init_dis->dis * 100);
 		strategy(argv, a_list);
 		ft_printf("[bench] total_ops: %d\n", count_ops(count));
 		ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",

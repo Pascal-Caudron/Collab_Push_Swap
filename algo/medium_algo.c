@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bjmrzd <bjmrzd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:44:33 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/16 14:49:31 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:01:26 by bjmrzd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 	int		bucket_size;
 	int		size;
 	int		nb_values;
-	int		bucket_limit;
+	int		bucket_max;
 
 	b_list = malloc(sizeof(t_list *));
 	*b_list = NULL;
 	size = ft_lstsize((*a_list));
 	nb_values = 0;
 	bucket_size = square_root(size);
-	bucket_limit = bucket_size;
+	bucket_max = bucket_size;
 	while (nb_values < size)
 	{
 		if ((*a_list)->index < bucket_size)
@@ -79,7 +79,7 @@ void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 		else
 			ra(argv, a_list, count);
 		if (bucket_size <= nb_values && nb_values < size)
-			bucket_size += bucket_limit;
+			bucket_size += bucket_max;
 	}
 	medium_push_back(argv, a_list, b_list, count);
 }

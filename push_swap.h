@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bjmrzd <bjmrzd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:56 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/16 15:42:36 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:05:49 by bjmrzd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ int					max_bits(t_list **list);
 int					print_float(float number, int fd);
 int					square_root(int size);
 int					max_index(t_list **list);
+int					get_max(t_list **list);
 
 char				**ft_split(char const *s, char c);
 char				*ft_strchr(const char *s, int c);

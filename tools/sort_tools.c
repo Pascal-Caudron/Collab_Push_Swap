@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bjmrzd <bjmrzd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 19:56:30 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/16 19:56:31 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/17 17:05:35 by bjmrzd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,20 @@ int	min_index(t_list **list)
 		tmp = tmp->next;
 	}
 	return (index);
+}
+
+int	get_max(t_list **list)
+{
+	int		max;
+	t_list	*tmp;
+
+	tmp = (*list);
+	max = tmp->data;
+	while (tmp)
+	{
+		if (tmp->data < max)
+			max = tmp->data;
+		tmp = tmp->next;
+	}
+	return (max);
 }
