@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bjmrzd <bjmrzd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:44:33 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/21 22:12:14 by bjmrzd           ###   ########.fr       */
+/*   Updated: 2026/01/22 17:01:05 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,20 @@ int	square_root(int size)
 int	max_index(t_list **list)
 {
 	int		max;
-	int		count;
 	int		pos;
 	t_list	*tmp;
 
-	tmp = (*list)->next;
-	max = (*list)->data;
-	pos = 0;
-	count = 1;
+	tmp = (*list);
+	max = tmp->data;
+	pos = tmp->index;
 	while (tmp)
 	{
 		if (tmp->data > max)
 		{
 			max = tmp->data;
-			pos = count;
+			pos = tmp->index;
 		}
 		tmp = tmp->next;
-		count++;
 	}
 	return (pos);
 }
@@ -52,12 +49,16 @@ void	medium_push_back(char *argv[], t_list **a_list, t_list **b_list,
 	int	index_max;
 	int	size;
 
+	// index_max = max_index(b_list);
+	// presort_index(b_list);
 	while (*b_list)
 	{
 		size = ft_lstsize((*b_list));
 		index_max = max_index(b_list);
 		if ((*b_list)->index == index_max)
+		{
 			pa(argv, a_list, b_list, count);
+		}
 		else if (index_max <= size / 2)
 			rb(argv, b_list, count);
 		else
@@ -80,18 +81,20 @@ void	bucket_sort(char *argv[], t_list **a_list, t_count *count)
 	size = ft_lstsize((*a_list));
 	nb_values = 0;
 	bucket_size = square_root(size);
+	presort_index(a_list);
 	bucket_limit = bucket_size;
 	while (nb_values < size)
 	{
-		if ((*a_list)->index < bucket_size)
+		if ((*a_list)->index < bucket_limit)
 		{
 			pb(argv, a_list, b_list, count);
 			nb_values++;
 		}
 		else
 			ra(argv, a_list, count);
-		if (bucket_size <= nb_values && nb_values < size)
-			bucket_size += bucket_limit;
+
+		if (nb_values == bucket_limit)
+			bucket_limit += bucket_size;
 	}
 	medium_push_back(argv, a_list, b_list, count);
 }
