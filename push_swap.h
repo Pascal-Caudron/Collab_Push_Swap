@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:56 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/23 02:46:32 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:40:09 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,12 @@ typedef enum e_flag
 	COUNT_ONLY,
 }					t_flag;
 
+typedef enum e_free
+{
+	NO_FREE = 0,
+	FREE,
+}					t_free;
+
 typedef struct s_dis
 {
 	float			dis;
@@ -73,7 +79,7 @@ void				sb(char *argv[], t_list **list, t_count *count);
 void				rra(char *argv[], t_list **list, t_count *count);
 void				rrb(char *argv[], t_list **list, t_count *count);
 void				ft_lstadd_back(t_list **lst, t_list *node);
-void				parsing(int argc, char *argv[], t_list **a);
+t_free				parsing(int argc, char *argv[], t_list **a);
 void				parsing_str(int argc, char *argv[], t_list **a, int num);
 void				*ft_calloc(size_t nmemb, size_t size);
 void				error_arg(t_list **a_list);
@@ -101,7 +107,7 @@ void				medium_push_back(char *argv[], t_list **a_list,
 void				radix_logic(int count_bits, t_list **a_list, char *argv[],
 						t_count *count);
 void				free_malloc_main(t_list **list, t_count *count,
-						t_dis *init_dis);
+						t_dis *init_dis, t_free not_free);
 
 int					count_ops(t_count *count);
 int					duplicate_parsing(t_list **list);

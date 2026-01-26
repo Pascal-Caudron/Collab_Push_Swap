@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:03:06 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/23 03:07:10 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:39:14 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int	main(int argc, char *argv[])
 {
-	// t_list	*tmp;
 	t_list	**list;
 	t_count	*count;
 	t_dis	*init_dis;
+	t_free not_free;
 
 	list = malloc(sizeof(t_list *));
-	if (!list)
-		return (0);
 	count = malloc(sizeof(t_count));
 	if (!count)
 		return (0);
@@ -29,19 +27,14 @@ int	main(int argc, char *argv[])
 	if (!init_dis)
 		return (0);
 	*list = NULL;
-	parsing(argc, argv, list);
+	not_free = parsing(argc, argv, list);
+	free_malloc_main(list, count, init_dis, not_free);
 	init_count(count);
 	init_disorder(list, init_dis);
 	strat_select(argv, list, count);
 	if (arg_error(argv) == COUNT_ONLY)
 		ft_printf("%d\n", count_ops(count));
 	bench(argv, count, init_dis, list);
-	// tmp = (*list);
-	// while (tmp)
-	// {
-	// 	printf("arg 1 = %d\n", tmp->data);
-	// 	tmp = tmp->next;
-	// }
 	free(count);
 	free(init_dis);
 	free_list(list);

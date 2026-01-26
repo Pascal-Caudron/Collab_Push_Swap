@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:58 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/23 02:54:02 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:42:01 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,19 +111,26 @@ int	duplicate_parsing(t_list **list)
 	return (1);
 }
 
-void	parsing(int argc, char *argv[], t_list **a)
+t_free	parsing(int argc, char *argv[], t_list **a)
 {
-	int	num;
+	int		num;
+	t_free	not_free;
 
 	num = 0;
+	not_free = NO_FREE;
 	if (argc <= 2)
-		exit(2);
+	{
+		not_free = FREE;
+		return (not_free);
+	}
 	parsing_str(argc, argv, a, num);
 	if (duplicate_parsing(a) == 0)
 		error_arg(a);
 	if (sorted(a) == 0)
 	{
 		free_list(a);
-		exit(2);
+		not_free = FREE;
+		return (not_free);
 	}
+	return (not_free);
 }

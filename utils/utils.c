@@ -6,7 +6,7 @@
 /*   By: brouzaud <brouzaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 09:02:43 by brouzaud          #+#    #+#             */
-/*   Updated: 2026/01/16 15:23:31 by brouzaud         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:41:14 by brouzaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ int	ft_isdigit(char *c)
 
 void	error_arg(t_list **a_list)
 {
+	// t_free not_free;
 	write(2, "Error\n", 7);
 	free_list(a_list);
+	// not_free = FREE;
 	exit(2);
 }
 
