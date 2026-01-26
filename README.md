@@ -1,10 +1,10 @@
 # README.md - Printf Project
 
-*This project has been created as part of the 42 curriculum by pcaudron.*
+*This project has been created as part of the 42 curriculum by pcaudron, brouzaud.*
 
 ## Description
 
-__Printf__ is a function which permits to output arguments according to their format such as %i (integer), %d (decimal), %c (character), %s (string) %x (hexadecimal in lowercase), %X (hexadecimal in uppercase), %p (memory adress of a pointer) or %u (unsigned int).
+__Push_Swap__ is a program which permits to sort a set of integer in the most optimal way using only two stacks and operations to manipulate the stacks. It sorts depending of the disorder of the set of integers. The disorder defines how much of the set is already sorted. Depending of the value of the disorder the sorting algorithm will change to optimize the number of operations required.
 
 ## Instructions
 
@@ -47,15 +47,15 @@ To use ft_printf in other projects:
 
 ## Project Structure
 
-| Functions | Format | Description | Return Value |
-| -------- | :-------- |:------- | :-------: |
-| `ft_printf`  | cspdiuxX% |**Behave like the printf function of the stdio library** | _Returns the number of bytes written._ |
-| `ft_putchar` | %c | **Write a single character**. | _Returns the number of bytes written._ |
-| `ft_putnbr_hexa` | %x and %X |**Write a number in hexadecimal**. | _Returns the number of bytes written._|
-| `ft_putnbr_u` | %u |**Write an unsigned int**. | _Returns the number of bytes written._ |
-| `putnbr` | %i and %d |**Write a number in decimal**. | _Returns the number of bytes written._ |
-| `putptr` | %p |**Write the memory adress of a pointer**. | _Returns the number of bytes written._ |
-| `putstr` | %s |**Write a string**. | _Returns the number of bytes written._ |
+| Functions | Description |
+| -------- |:------- |
+| `ft_printf`  |**Behave like the printf function of the stdio library** |
+| `ft_putchar` | **Write a single character**. |
+| `ft_putnbr_hexa` |**Write a number in hexadecimal**. |
+| `ft_putnbr_u` |**Write an unsigned int**. |
+| `putnbr` |**Write a number in decimal**. |
+| `putptr` |**Write the memory adress of a pointer**. |
+| `putstr` |**Write a string**. |
 
 ## Resources
 
